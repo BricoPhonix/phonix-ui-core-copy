@@ -1,14 +1,27 @@
 {
-  "name": "@phonix-ui-core/input",
+  "name": "@bricophonix/input-new",
+  "private": false,
   "version": "0.1.0",
   "description": "Input component for Phonix UI",
-  "main": "src/Input.tsx",
-  "types": "src/Input.tsx",
+  "main": "dist/index.js",
+  "module": "dist/input.es.js",
+  "types": "dist/index.d.ts",
+  "license": "UNLICENSED",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/input.es.js",
+      "require": "./dist/input.umd.js"
+    }
+  },
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "build": "vite build && tsc --project tsconfig.json",
+    "preview": "vite preview"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^19.0.0-rc-66855b96-20241106",
     "react-dom": "^19.0.0-rc-66855b96-20241106"
   },
@@ -18,5 +31,8 @@
     "@types/react-dom": "^18.3.5",
     "typescript": "~5.6.2"
   },
-  "private": true
+  "repository": "https://github.com/bricophonix/phonix-ui-core-copy.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
